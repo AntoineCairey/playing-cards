@@ -5,7 +5,7 @@ export class Monster {
   image: string = 'assets/img/pik.png';
   type: MonsterType = MonsterType.ELECTRIC;
   hp: number = 10;
-  figureCaption: string = 'N°001 Monster';
+  figureCaption: string = 'N°000 Monster';
 
   attackName: string = 'Standard Attack';
   attackStrength: number = 10;
