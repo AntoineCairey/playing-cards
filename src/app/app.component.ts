@@ -23,16 +23,22 @@ import { MonsterService } from './services/monster/monster.service';
 export class AppComponent {
   monsterService = inject(MonsterService);
 
-  monsters!: Monster[];
+  monsters = signal<Monster[]>([]);
   search = model('');
 
   filteredMonsters = computed(() => {
-    return this.monsters.filter((monster) =>
+    return this.monsters().filter((monster) =>
       monster.name.includes(this.search())
     );
   });
 
   constructor() {
-    this.monsters = this.monsterService.getAll();
+    this.monsters.set(this.monsterService.getAll());
+  }
+
+  addMonster() {
+    const genericMonster = new Monster();
+    this.monsterService.add(genericMonster);
+    this.monsters.set(this.monsterService.getAll());
   }
 }
