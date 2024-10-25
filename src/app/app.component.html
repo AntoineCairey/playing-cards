@@ -4,8 +4,8 @@
       <mat-icon>home</mat-icon>
     </button>
     <p>
-      Welcome {{ loginService.user()?.firstname }}
-      {{ loginService.user()?.lastname }}
+      Welcome {{ loginService.user()?.firstName }}
+      {{ loginService.user()?.lastName }}
     </p>
     <button mat-flat-button color="warn" (click)="logout()">Logout</button>
   </mat-toolbar>
